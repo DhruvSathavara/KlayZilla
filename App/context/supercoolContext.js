@@ -17,18 +17,19 @@ export const SupercoolAuthContextProvider = (props) => {
   const [genRanImgLoding, setGenRanImgLoding] = useState(false);
   const [provider, setProvider] = useState(null);
   const [signer, setSigner] = useState(null);
+  const [balance, setBalance] = useState(null);
 
   useEffect(() => {
     getSignerFromProvider();
   }, [])
 
   const firebaseConfig = {
-    apiKey: "AIzaSyB-c4k5sWUNl2F3br-Ic1MwfDZkGZ3R3BY",
-    authDomain: "scopbnb.firebaseapp.com",
-    projectId: "scopbnb",
-    storageBucket: "scopbnb.appspot.com",
-    messagingSenderId: "121538116136",
-    appId: "1:121538116136:web:a13ed1e1cb37674914531d"
+    apiKey: "AIzaSyAFmZ8RxSyQOatZd02XFK-dzVRwQrooa3U",
+    authDomain: "magical-klytn.firebaseapp.com",
+    projectId: "magical-klytn",
+    storageBucket: "magical-klytn.appspot.com",
+    messagingSenderId: "517479113074",
+    appId: "1:517479113074:web:72318ad9443cc99135bdeb"
   };
   
 
@@ -75,8 +76,9 @@ export const SupercoolAuthContextProvider = (props) => {
     if (window.ethereum) {
       try {
         const networkId = await window.ethereum.request({ method: 'net_version' });
-        if (Number(networkId) !== 5611) {
-          alert("Please switch to the correct network.");
+        console.log(networkId);
+        if (Number(networkId) !== 1001) {
+          alert("Please switch to the klaytn test network.");
           return;
         }
 
@@ -84,6 +86,8 @@ export const SupercoolAuthContextProvider = (props) => {
         if (accounts.length > 0) {
           setWalletConnected(true);
           localStorage.setItem('address', accounts[0]);
+          const balance = await provider.getBalance(accounts[0]);
+          setBalance(ethers.utils.formatEther(balance));
         }
       } catch (error) {
         console.error("Error while logging in:", error);
@@ -198,7 +202,8 @@ export const SupercoolAuthContextProvider = (props) => {
         updateForPurchase,
         UserProfileRef,
         db,
-        walletConnected
+        walletConnected,
+        balance
       }}
       {...props}
     >

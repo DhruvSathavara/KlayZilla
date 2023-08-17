@@ -28,12 +28,13 @@ export default function Header01() {
     });
     if (typeof window !== 'undefined') {
       const value = localStorage.getItem('address');
-      setAddress(value)
+      setAddress(value);
+      
     }
   });
 
   const superCoolContext = React.useContext(SupercoolAuthContext);
-  const { login, logout, walletConnected } = superCoolContext;
+  const { login, logout, walletConnected, balance } = superCoolContext;
   const shortAddress = (addr) =>
     addr?.length > 10 && addr?.startsWith("0x")
       ? `${addr?.substring(0, 12)}...${addr?.substring(addr.length - 4)}`
@@ -186,7 +187,7 @@ export default function Header01() {
 
           <Link className="shrink-0" href="/">
             <p className="text-jacarta-700 font-bold font-display mb-6 text-center text-2xl dark:text-white md:text-left lg:text-2xl xl:text-2xl animate-gradient">
-              Magical NFTs
+             KlayZilla
             </p>
           </Link>
 
@@ -275,10 +276,10 @@ export default function Header01() {
                           Balance
                         </span>
                         <div className="flex items-center">
-                        <img  className="icon mr-1 h-4 w-4" src='/bnb-logo.png'></img>
+                        <img  className="icon mr-1 h-4 w-4" src='/magicalKlaytn.png'></img>
 
                           <span className="text-green text-lg font-bold">
-                            10 TBNB
+                           {balance}
                           </span>
                         </div>
                       </div>

@@ -1,11 +1,11 @@
 const hre = require('hardhat');
 async function main() {
 
-  const Gamesets = await hre.ethers.deployContract("GameSets", );
+  const Magical = await hre.ethers.deployContract("MagicalNfts", );
 
-  await Gamesets.waitForDeployment();
+  await Magical.waitForDeployment();
 
-  console.log('deploy SuperCool contract to', Gamesets.target);
+  console.log('deploy MagicalNfts contract to', Magical.target);
 
 }
 

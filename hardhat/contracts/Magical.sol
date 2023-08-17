@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.1;
 
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import "@klaytn/contracts/KIP/token/KIP17/extensions/KIP17URIStorage.sol";
+import "@klaytn/contracts/utils/Counters.sol";
 
-contract GameSets is ERC721URIStorage {
+
+contract MagicalNfts is KIP17URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private tokenCounter;
 
@@ -12,7 +13,7 @@ contract GameSets is ERC721URIStorage {
     mapping(address => uint256[]) private userNFTs;
 
     constructor(
-    ) ERC721("supercool", "sc") {
+    ) KIP17("magicalNfts", "MN") {
     }
 
     function mintNFT(

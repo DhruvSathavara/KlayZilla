@@ -38,7 +38,7 @@ const CategoryItem = ({ data }) => {
               </div>
               <div className="mt-2 text-sm">
                 <span className="dark:text-jacarta-200 text-jacarta-700 mr-1">
-                  {item.price} TBNB
+                  {item.price} KLAY
                 </span>
                 <span className="dark:text-jacarta-300 text-jacarta-500">
                   {/* 1/1 */}
