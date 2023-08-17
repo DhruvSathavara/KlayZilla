@@ -104,7 +104,7 @@ const Create = () => {
     }
   };
 
-  const mintNft = async (_price, _metadataurl,_metaData) => {
+  const mintNft = async (_price, _metadataurl, _metaData) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
 
@@ -119,7 +119,7 @@ const Create = () => {
       const receipt = await tx.wait();
 
       if (receipt.status === 1) {
-				toast("NFT Minted Sucessfully 🎉!!");
+        toast("NFT Minted Sucessfully 🎉!!");
         await storeDataInFirebase(_metaData);
       } else {
         console.log("Transaction failed:");
@@ -148,7 +148,7 @@ const Create = () => {
     const numOfNfts = await contractPro.getTotalSupply();
     return Number(numOfNfts) + 1;
   }
-// totalNfts()
+  // totalNfts()
 
   const createNft = async () => {
 
@@ -158,7 +158,7 @@ const Create = () => {
       description: description,
       price: price,
       chain: chain,
-      image: "https://bafkreiga2fuxusfmmnyccdapm2hpbyf2pcp7xybnwjxxaa5sqqytqkemem.ipfs.nftstorage.link/",
+      image: selectedImage,
       category: category,
       owner: localStorage.getItem('address'),
       tokenId: tokenid,
@@ -167,7 +167,7 @@ const Create = () => {
     console.log(nftData);
     setMintLoading(true);
     let metadataurl = await uploadOnIpfs(nftData);
-    await mintNft(ethers.utils.parseUnits(nftData.price?.toString(), "ether"), metadataurl,nftData);
+    await mintNft(ethers.utils.parseUnits(nftData.price?.toString(), "ether"), metadataurl, nftData);
   }
 
   function handleSelectedImg(url) {
