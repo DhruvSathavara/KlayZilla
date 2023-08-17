@@ -1,11 +1,11 @@
 const hre = require('hardhat');
 async function main() {
 
-  const Magical = await hre.ethers.deployContract("MagicalNfts", );
+  const Klayzilla = await hre.ethers.deployContract("KlayZilla", );
 
-  await Magical.waitForDeployment();
+  await Klayzilla.waitForDeployment();
 
-  console.log('deploy MagicalNfts contract to', Magical.target);
+  console.log('deploy Klayzilla contract to', Klayzilla.target);
 
 }
 

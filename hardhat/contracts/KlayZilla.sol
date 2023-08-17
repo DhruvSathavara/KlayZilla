@@ -5,7 +5,7 @@ import "@klaytn/contracts/KIP/token/KIP17/extensions/KIP17URIStorage.sol";
 import "@klaytn/contracts/utils/Counters.sol";
 
 
-contract MagicalNfts is KIP17URIStorage {
+contract KlayZilla is KIP17URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private tokenCounter;
 
@@ -13,7 +13,7 @@ contract MagicalNfts is KIP17URIStorage {
     mapping(address => uint256[]) private userNFTs;
 
     constructor(
-    ) KIP17("magicalNfts", "MN") {
+    ) KIP17("klayZilla", "KZ") {
     }
 
     function mintNFT(

@@ -158,7 +158,7 @@ const Create = () => {
       description: description,
       price: price,
       chain: chain,
-      image: selectedImage,
+      image: "https://bafkreiga2fuxusfmmnyccdapm2hpbyf2pcp7xybnwjxxaa5sqqytqkemem.ipfs.nftstorage.link/",
       category: category,
       owner: localStorage.getItem('address'),
       tokenId: tokenid,
